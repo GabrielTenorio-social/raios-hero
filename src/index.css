@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes mover {
+  from {
+    offset-distance: 0%;
+    transform: scale(2);
+    opacity: 1;
+  }
+  to {
+    offset-distance: 100%;
+    transform: scale(0.5);
+    opacity: 0.1;
+  }
+}
+
+.ray {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background: lightblue;
+  position: absolute;
+  animation: mover 4s linear infinite;
+  box-shadow: -1px -1px 80px 21px rgba(71,171,242,0.75);
+  offset-rotate: 0deg;
+}
+
+.ray::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* começa logo abaixo da bolinha */
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(0,200,255,0.6), transparent);
+}
+
+.ray-1 {
+  offset-path: path("M0.250977 459.971C691.562 424.628 643.938 534.667 777.287 1.26904");
+  left: 200px;
+  top: 100px;
+}
+
+.ray-2 {
+  offset-path: path("M1 515.366C813.629 468.493 657.219 489.298 784.302 1.26904");
+  left: 250px;
+  top: 100px;
+  animation-delay: 1s;
+}
